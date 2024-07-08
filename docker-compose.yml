@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: testapi_db
+    restart: unless-stopped
+    ports:
+      - 27018:27017
+    volumes:
+      - metadb:/data/db
+
+  web:
+    depends_on:
+      - mongodb
+    build: ./
+    ports: 
+     - "3000:3000"
+    volumes:
+    - ./:/app
+    restart: unless-stopped
+    container_name: RestAPITest
+
+volumes:
+  metadb:
