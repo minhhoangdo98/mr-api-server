@@ -8,8 +8,9 @@ let engine = new BABYLON.Engine(canvas, true);
 let scene = new BABYLON.Scene(engine);
 
 function createScene() {
-    const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 0, 0), scene);
+    const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(3, 2, 10), scene);
     camera.attachControl(true);
+    camera.rotation = new BABYLON.Vector3(0, Math.PI, 0);
     // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
     var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
 
@@ -48,7 +49,7 @@ function createScene() {
     button1.width = 1;
     button1.height = 0.4;
     button1.color = "white";
-    button1.fontSize = 100;
+    button1.fontSize = 200;
     button1.background = "green";
     button1.onPointerUpObservable.add(function () {
         api_reception.storeData(api_def.api_dict.SaveTestData.url, {}, JSON.stringify({
