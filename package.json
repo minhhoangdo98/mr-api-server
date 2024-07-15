@@ -4,14 +4,21 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npx webpack --mode development && node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babylonjs": "^7.15.0",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.4.4"
+    "mongoose": "^8.4.4",
+    "source-map-loader": "^5.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }

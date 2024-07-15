@@ -5,6 +5,9 @@ const http = require('http').createServer(app);
 const api_reception = require('./src/api_server/api_reception');
 require('dotenv').config();
 
+const mongoose = require('mongoose');
+const path = require('path');
+
 // Add the CORS headers in the request.
 app.use(function (req, res, next) {
 
@@ -37,7 +40,6 @@ const httpServer = http.listen(process.env.PORT, () => {
 api_reception.ApiReceptionRegistration(app);
 
 //connect to db
-const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL)
   .then(async () => {
     api_reception.initmodels();
@@ -45,3 +47,5 @@ mongoose.connect(process.env.DATABASE_URL)
   }).catch((error) => {
     console.log(error);
   });
+
+app.use(express.static('public'));
