@@ -10,7 +10,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
       "process.env.DATABASE_URL": JSON.stringify(process.env.DATABASE_URL),
-      "process.env.PORT": JSON.stringify(process.env.PORT)
+      "process.env.PORT": JSON.stringify(process.env.PORT),
+      "process.env.SERVER_API_URL": JSON.stringify(process.env.SERVER_API_URL)
     }),
   ],
   entry: entryPath,
