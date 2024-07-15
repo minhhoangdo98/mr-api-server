@@ -3,7 +3,7 @@ const global_def = require("../common/global_definition");
 const model = require("../data_server/models");
 
 function initmodels() {
-    global_def.model_dicts["test_infos"] = model.TestInfo;
+    global_def.model_dicts["position_infos"] = model.PositionInfo;
 }
 
 /**
@@ -47,7 +47,7 @@ async function ApiReceptionRegistration(app) {
  * @returns json
  */
 async function fetchData(requestUrl, params) {
-    let url = requestUrl.replace(ApiDef.API_URL, "");
+    let url = requestUrl.replace(ApiDef.api_url, "");
     let apiUrl = ""
     let listString = url.split("/");
     let index = 0;
@@ -82,7 +82,7 @@ async function fetchData(requestUrl, params) {
 }
 
 async function storeData(requestUrl, params, requestBody) {
-    let url = requestUrl.replace(ApiDef.API_URL, "");
+    let url = requestUrl.replace(ApiDef.api_url, "");
     let apiUrl = ""
     let listString = url.split("/");
     let index = 0;

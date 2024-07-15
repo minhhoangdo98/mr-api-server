@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 //create a test collection
-const testInfo = new mongoose.Schema({
-    test_name: String,
-    test_type: String,
-    info: String
+const posInfo = new mongoose.Schema({
+    x: Number,
+    y: Number,
+    z: Number
 });
-const TestInfo = mongoose.model("test_infos", testInfo);
+const PositionInfo = mongoose.model("position_infos", posInfo);
 
 module.exports = {
-    TestInfo
+    PositionInfo
 }
