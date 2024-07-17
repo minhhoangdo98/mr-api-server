@@ -58,9 +58,19 @@ window.addEventListener('DOMContentLoaded', async function () {
                 y: box.position.y,
                 z: box.position.z
             }));
-            alert("Success save to server!");
         });
         advancedTexture.addControl(button1);
+
+        const xr = await scene.createDefaultXRExperienceAsync({
+            floorMeshes: scene,
+            disableTeleportation: true
+        });
+        const featureManager = xr.baseExperience.featuresManager;
+        const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
+            xrInput: xr.input,
+            movementOrientationFollowsViewerPose: true,
+            movementSpeed: 1
+        });
     }
 
     function startRenderLoop() {
